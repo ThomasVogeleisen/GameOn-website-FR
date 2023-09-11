@@ -13,6 +13,9 @@ const modalBtn = document.querySelectorAll(".modal-btn")
 const formData = document.querySelectorAll(".formData")
 const closeBtn = document.querySelector(".close")
 const formulaire = document.querySelector("form")
+const modalContent = document.querySelector(".modal-body")
+const modalSuccess = document.querySelector(".modal-body-success")
+const modalBtnSuccess = document.querySelector(".modal-body-success-btn")
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal))
@@ -32,10 +35,12 @@ formulaire.addEventListener("submit", (event) => {
   event.preventDefault()
 
   // Vérifier si le Prénom est > 2 caractères
+  let validForm = true
   const formDivFirstName = document.querySelector(".formData-first")
   const formValueFirstName = document.getElementById("first").value
   if (formValueFirstName.length < 2) {
     formDivFirstName.setAttribute("data-error-visible", "true")
+    validForm = false
   } else {
     formDivFirstName.setAttribute("data-error-visible", "false")
   }
@@ -45,6 +50,7 @@ formulaire.addEventListener("submit", (event) => {
   const formValueLastName = document.getElementById("last").value
   if (formValueLastName.length < 2) {
     formDivLastName.setAttribute("data-error-visible", "true")
+    validForm = false
   } else {
     formDivLastName.setAttribute("data-error-visible", "false")
   }
@@ -55,6 +61,7 @@ formulaire.addEventListener("submit", (event) => {
   let regexEmail = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+")
   if(!regexEmail.test(formValueEmail)) {
     formDivEmail.setAttribute("data-error-visible", "true")
+    validForm = false
   } else {
     formDivEmail.setAttribute("data-error-visible", "false")
   }
@@ -65,6 +72,7 @@ formulaire.addEventListener("submit", (event) => {
   let regexBirthdate = new RegExp("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
   if(!regexBirthdate.test(formValueBirthdate)) {
     formDivBirthdate.setAttribute("data-error-visible", "true")
+    validForm = false
   } else {
     formDivBirthdate.setAttribute("data-error-visible", "false")
   }
@@ -74,6 +82,7 @@ formulaire.addEventListener("submit", (event) => {
   const formValueNbTournois = document.getElementById("quantity").value
   if (formValueNbTournois < 0 || formValueNbTournois > 99 || formValueNbTournois === "") {
     formDivNbTournois.setAttribute("data-error-visible", "true")
+    validForm = false
   } else {
     formDivNbTournois.setAttribute("data-error-visible", "false")
   }
@@ -90,6 +99,7 @@ formulaire.addEventListener("submit", (event) => {
   }
   if (formTournoi === "") {
     formDivTournoi.setAttribute("data-error-visible", "true")
+    validForm = false
   } else {
     formDivTournoi.setAttribute("data-error-visible", "false")
   }
@@ -99,10 +109,21 @@ formulaire.addEventListener("submit", (event) => {
   const formCondistionUsers = document.getElementById("checkbox1")
   if (!formCondistionUsers.checked) {
     formDivCondistionUsers.setAttribute("data-error-visible", "true")
+    validForm = false
   } else {
     formDivCondistionUsers.setAttribute("data-error-visible", "false")
   }
+  
+  if(validForm){
+    modalContent.setAttribute("style", "display:none;")
+    modalSuccess.setAttribute("style", "display:flex;")
 
+    modalBtnSuccess.addEventListener("click", () => {
+      modalContent.setAttribute("style", "display:block;")
+      modalSuccess.setAttribute("style", "display:none;")
+      modalbg.style.display = "none"
+    })
+  }
 })
 
 
