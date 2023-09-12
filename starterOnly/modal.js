@@ -22,11 +22,17 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal))
 
 // CLose modal
 closeBtn.addEventListener("click", () => {
-  modalbg.style.display = "none"
+  modalbg.classList.remove('modal-open-animation');
+  modalbg.classList.add('modal-close-animation');
+  setTimeout(function() {
+    modalbg.style.display = "none"
+  }, 600);
 });
 
 // launch modal form
 function launchModal() {
+  modalbg.classList.remove('modal-close-animation');
+  modalbg.classList.add('modal-open-animation');
   modalbg.style.display = "block"
 }
 
