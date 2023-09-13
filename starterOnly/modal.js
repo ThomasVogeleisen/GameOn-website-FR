@@ -11,7 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground")
 const modalBtn = document.querySelectorAll(".modal-btn")
 const formData = document.querySelectorAll(".formData")
-const closeBtn = document.querySelector(".close")
+const closeBtn = document.querySelectorAll(".modal-close")
 const formulaire = document.querySelector("form")
 const modalContent = document.querySelector(".modal-body")
 const modalSuccess = document.querySelector(".modal-body-success")
@@ -20,14 +20,17 @@ const modalBtnSuccess = document.querySelector(".modal-body-success-btn")
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal))
 
+// launch modal close event
+closeBtn.forEach((btn) => btn.addEventListener("click", closeModal))
+
 // CLose modal
-closeBtn.addEventListener("click", () => {
+function closeModal() {
   modalbg.classList.remove('modal-open-animation');
   modalbg.classList.add('modal-close-animation');
   setTimeout(function() {
     modalbg.style.display = "none"
   }, 600);
-});
+}
 
 // launch modal form
 function launchModal() {
@@ -127,7 +130,6 @@ formulaire.addEventListener("submit", (event) => {
     modalBtnSuccess.addEventListener("click", () => {
       modalContent.setAttribute("style", "display:block;")
       modalSuccess.setAttribute("style", "display:none;")
-      modalbg.style.display = "none"
     })
   }
 })

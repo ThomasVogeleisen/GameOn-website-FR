@@ -401,7 +401,6 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -599,5 +598,17 @@ footer {
   to {
     opacity: 0;
     transform: translateY(-150px);
+  }
+}
+
+@keyframes modalFondu {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }
