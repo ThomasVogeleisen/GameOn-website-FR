@@ -46,13 +46,14 @@ img {
 .topnav a {
   float: left;
   display: block;
-  color: #ff0000;
+  color: #232323;
   text-align: center;
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
   font-size: 18px;
-  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-family: var(--font-slab);
 }
 
 .topnav a:hover {
@@ -66,9 +67,14 @@ img {
   color: #ffffff;
   border-radius: 15px;
 }
+.topnav a.active span {
+  border-bottom: 1px solid white;
+
+}
 
 .topnav .icon {
   display: none;
+  color: #FE142F;;
 }
 
 main {
@@ -173,6 +179,8 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
+  animation-name: modalFondu;
+  animation-duration: var(--modal-duration);
 }
 .modal-body-success__content{
   font-size: 36px;
@@ -453,7 +461,8 @@ input[data-error]::after {
   grid-column: span 8;
 }
 .hero-img img {
-  width: 100%;
+  margin-left: 80px;
+  width: 90%;
   height: 100%;
   display: block;
   padding: 0;
@@ -502,7 +511,7 @@ footer {
     position: relative;
   }
   .topnav.responsive .main-navbar{
-    background-color: #4c4c4c;
+    background-color: #dfdfdf;
     border-radius: 10px;
     position: relative;
     top: 90px;
@@ -550,6 +559,7 @@ footer {
     margin: 32px auto 10px;
     padding: 12px 35px;
   }
+
   .copyrights {
     margin-top: 0px;
     text-align: center;
@@ -569,7 +579,19 @@ footer {
   }
 }
 @media screen and (max-width: 510px) {
-  
+  .header-logo img{
+    left: 30px;
+    top: 25px;
+    height: 25px;
+  }
+  .topnav{
+    height: 65px;
+  }
+  .topnav a.icon {
+    top: 5px;
+    right: 10px;
+    font-size: 30px;
+  }
   .hero-headline {
       font-size: 2.5rem;
   }
@@ -577,6 +599,11 @@ footer {
     margin-top: 17px;
     margin-bottom: -30px;
     font-size: 0.85rem;
+  }
+  
+  .bground {
+    top: 50px;
+    background-color: transparent;
   }
 }
 

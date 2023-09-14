@@ -34,6 +34,7 @@ function closeModal() {
 
 // launch modal form
 function launchModal() {
+  modalContent.setAttribute("style", "display:block;")
   modalbg.classList.remove('modal-close-animation');
   modalbg.classList.add('modal-open-animation');
   modalbg.style.display = "block"
@@ -128,7 +129,6 @@ formulaire.addEventListener("submit", (event) => {
     modalSuccess.setAttribute("style", "display:flex;")
 
     modalBtnSuccess.addEventListener("click", () => {
-      modalContent.setAttribute("style", "display:block;")
       modalSuccess.setAttribute("style", "display:none;")
     })
   }
