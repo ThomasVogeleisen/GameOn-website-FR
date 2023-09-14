@@ -478,10 +478,9 @@ input[data-error]::after {
   display: none;
 }
 footer {
-  padding-left: 2vw;
-  padding-right: 2vw;
   margin: 0 20px;
 }
+
 
 /* MEDIA QUERIES */
 
@@ -551,6 +550,9 @@ footer {
     margin-top: 17px;
   }
   .hero-img img {
+    width: 100%;
+    margin-left: 0;
+    margin: auto;
     border-radius: 10px;
     margin-top: 40px;
   }

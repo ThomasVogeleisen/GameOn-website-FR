@@ -40,9 +40,17 @@ function launchModal() {
   modalbg.style.display = "block"
 }
 
+function afficheInfosConsole(userData) {
+  for (let i = 0; i < userData.length; i++) {
+    console.log(userData[i])
+  }
+}
+
 // VALIDATION FORM
 formulaire.addEventListener("submit", (event) => {
   event.preventDefault()
+
+  let userData = []
 
   // Vérifier si le Prénom est > 2 caractères
   let validForm = true
@@ -53,6 +61,7 @@ formulaire.addEventListener("submit", (event) => {
     validForm = false
   } else {
     formDivFirstName.setAttribute("data-error-visible", "false")
+    userData.push(formValueFirstName)
   }
 
   // Vérifier si le Nom est > 2 caractères
@@ -63,6 +72,7 @@ formulaire.addEventListener("submit", (event) => {
     validForm = false
   } else {
     formDivLastName.setAttribute("data-error-visible", "false")
+    userData.push(formValueLastName)
   }
 
   // Vérifier L' email
@@ -74,6 +84,7 @@ formulaire.addEventListener("submit", (event) => {
     validForm = false
   } else {
     formDivEmail.setAttribute("data-error-visible", "false")
+    userData.push(formValueEmail)
   }
 
   // Vérifier date de naissance
@@ -85,6 +96,7 @@ formulaire.addEventListener("submit", (event) => {
     validForm = false
   } else {
     formDivBirthdate.setAttribute("data-error-visible", "false")
+    userData.push(formValueBirthdate)
   }
 
   // Vérifier Nb tournois
@@ -95,6 +107,7 @@ formulaire.addEventListener("submit", (event) => {
     validForm = false
   } else {
     formDivNbTournois.setAttribute("data-error-visible", "false")
+    userData.push(formValueNbTournois)
   }
 
   // Choisir un tournois
@@ -112,6 +125,7 @@ formulaire.addEventListener("submit", (event) => {
     validForm = false
   } else {
     formDivTournoi.setAttribute("data-error-visible", "false")
+    userData.push(formTournoi)
   }
 
   // Accepter les conditions
@@ -127,6 +141,8 @@ formulaire.addEventListener("submit", (event) => {
   if(validForm){
     modalContent.setAttribute("style", "display:none;")
     modalSuccess.setAttribute("style", "display:flex;")
+
+    afficheInfosConsole(userData)
 
     modalBtnSuccess.addEventListener("click", () => {
       modalSuccess.setAttribute("style", "display:none;")
