@@ -51,12 +51,13 @@ formulaire.addEventListener("submit", (event) => {
   event.preventDefault()
 
   let userData = []
+  let validForm = true
 
   // Vérifier si le Prénom est > 2 caractères
-  let validForm = true
   const formDivFirstName = document.querySelector(".formData-first")
   const formValueFirstName = document.getElementById("first").value
-  if (formValueFirstName.length < 2) {
+  const regexName = new RegExp("^[a-zA-Z]{2,}$")
+  if (!regexName.test(formValueFirstName)) {
     formDivFirstName.setAttribute("data-error-visible", "true")
     validForm = false
   } else {
@@ -67,7 +68,7 @@ formulaire.addEventListener("submit", (event) => {
   // Vérifier si le Nom est > 2 caractères
   const formDivLastName = document.querySelector(".formData-last")
   const formValueLastName = document.getElementById("last").value
-  if (formValueLastName.length < 2) {
+  if (!regexName.test(formValueLastName)) {
     formDivLastName.setAttribute("data-error-visible", "true")
     validForm = false
   } else {
@@ -78,7 +79,7 @@ formulaire.addEventListener("submit", (event) => {
   // Vérifier L' email
   const formDivEmail = document.querySelector(".formData-mail")
   const formValueEmail = document.getElementById("email").value
-  let regexEmail = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+")
+  const regexEmail = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]")
   if(!regexEmail.test(formValueEmail)) {
     formDivEmail.setAttribute("data-error-visible", "true")
     validForm = false
@@ -87,11 +88,14 @@ formulaire.addEventListener("submit", (event) => {
     userData.push(formValueEmail)
   }
 
-  // Vérifier date de naissance
+  // Calculer l'age de l'utilisateur
   const formDivBirthdate = document.querySelector(".formData-birthdate")
   const formValueBirthdate = document.getElementById("birthdate").value
-  let regexBirthdate = new RegExp("^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$")
-  if(!regexBirthdate.test(formValueBirthdate)) {
+  const dateActuelle = new Date()
+  const dateNaissance = new Date(formValueBirthdate)
+  const ageUtilisateur = dateActuelle.getFullYear() - dateNaissance.getFullYear()
+
+  if(ageUtilisateur <= 18 || formValueBirthdate === "") {
     formDivBirthdate.setAttribute("data-error-visible", "true")
     validForm = false
   } else {
