@@ -95,7 +95,7 @@ formulaire.addEventListener("submit", (event) => {
   const dateNaissance = new Date(formValueBirthdate)
   const ageUtilisateur = dateActuelle.getFullYear() - dateNaissance.getFullYear()
 
-  if(ageUtilisateur <= 18 || formValueBirthdate === "") {
+  if(ageUtilisateur < 18 || formValueBirthdate === "") {
     formDivBirthdate.setAttribute("data-error-visible", "true")
     validForm = false
   } else {
