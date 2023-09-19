@@ -29,6 +29,7 @@ function closeModal() {
   modalbg.classList.add('modal-close-animation');
   setTimeout(function() {
     modalbg.style.display = "none"
+    modalSuccess.setAttribute("style", "display:none;")
   }, 600);
 }
 

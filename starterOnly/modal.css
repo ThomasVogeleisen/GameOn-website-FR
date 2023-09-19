@@ -166,8 +166,7 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
-  max-height: calc(100vh - 70px);
-  overflow-y: auto;
+  min-height: 900px;
 }
 
 .modal-body {
@@ -599,7 +598,7 @@ footer {
     font-size: 30px;
   }
   .hero-headline {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
   }
   .hero-text {
     margin-top: 17px;
