@@ -9,6 +9,9 @@
   padding: 0;
 }
 /* Landing Page */
+.no-scroll {
+  overflow:hidden;  
+}
 
 body {
   margin: 0;
@@ -163,10 +166,8 @@ main {
   background: #232323;
   border-radius: 10px;
   overflow: hidden;
-  position: relative;
   color: #fff;
   padding-top: 10px;
-  min-height: 900px;
 }
 
 .modal-body {
@@ -605,10 +606,26 @@ footer {
     margin-bottom: -30px;
     font-size: 0.85rem;
   }
+  .content {
+    margin: 0;
+  }
   
   .bground {
-    top: 50px;
+    margin-top: 70px;
+    padding-bottom: 70px;
     background-color: transparent;
+  }
+
+  .text-label{
+    font-size: 14px;
+  }
+  label {
+    font-size: 14px;
+
+  }
+  .text-control {
+    font-size: 14px;
+
   }
 }
 

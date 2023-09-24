@@ -8,6 +8,7 @@ function editNav() {
 }
 
 // DOM Elements
+const body = document.querySelector("body")
 const modalbg = document.querySelector(".bground")
 const modalBtn = document.querySelectorAll(".modal-btn")
 const formData = document.querySelectorAll(".formData")
@@ -25,6 +26,7 @@ closeBtn.forEach((btn) => btn.addEventListener("click", closeModal))
 
 // CLose modal
 function closeModal() {
+  body.classList.remove('no-scroll');
   modalbg.classList.remove('modal-open-animation');
   modalbg.classList.add('modal-close-animation');
   setTimeout(function() {
@@ -35,6 +37,11 @@ function closeModal() {
 
 // launch modal form
 function launchModal() {
+  // Empecher le scroll de l'arrire plan et le fixer en haut de la page
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  body.classList.add('no-scroll');
+
   modalContent.setAttribute("style", "display:block;")
   modalbg.classList.remove('modal-close-animation');
   modalbg.classList.add('modal-open-animation');
@@ -151,6 +158,7 @@ formulaire.addEventListener("submit", (event) => {
     afficheInfosConsole(userData)
 
     modalBtnSuccess.addEventListener("click", () => {
+      body.classList.remove('no-scroll');
       modalSuccess.setAttribute("style", "display:none;")
     })
   }
