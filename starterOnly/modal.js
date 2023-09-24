@@ -143,6 +143,7 @@ formulaire.addEventListener("submit", (event) => {
     formDivCondistionUsers.setAttribute("data-error-visible", "false")
   }
   
+  // Message de validation du formulaire
   if(validForm){
     modalContent.setAttribute("style", "display:none;")
     modalSuccess.setAttribute("style", "display:flex;")
